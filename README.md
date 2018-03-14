@@ -29,4 +29,4 @@ InitializeDial()
 
 also mapped functions on event of the surface dial (rotation, click)
 
-the rest of the code are self explantory after understandiong ```InitializeDial()```
+the rest of the code are self explantory after understanding ```InitializeDial()```
