@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="Dial_tplink.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Dial_tplink"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="mainGrid" HorizontalAlignment="Stretch" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <SplitView x:Name="mainSplitView" Grid.Row="0"
+                   DisplayMode="CompactOverlay" OpenPaneLength="250" CompactPaneLength="50"
+                   HorizontalAlignment="Stretch">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single" x:Name="MenuListBox" SelectionChanged="MenuListBox_SelectionChanged">
+                    <ListBoxItem x:Name="HamburgerItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="HamburgerBtn" FontFamily="Segoe MDL2 Assets" Text="&#xE700;" FontSize="27px"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="HomeItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="HomeBtn" FontFamily="Segoe MDL2 Assets" Text="&#xE80F;" FontSize="27px"/>
+                            <TextBlock Name="HamburgerBtnText" Text="Home" FontSize="14px" Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="BrightnessItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="BrightnessBtn" FontFamily="Segoe MDL2 Assets" Text="&#xE706;" FontSize="27px"/>
+                            <TextBlock Name="BrightnessBtnText" Text="Brightness Control" FontSize="14px" Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="ColorItem">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="ColorBtn" FontFamily="Segoe MDL2 Assets" Text="&#xE790;" FontSize="27px"/>
+                            <TextBlock Name="ColorBtnText" Text="Color Control" FontSize="14px" Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>  
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid x:Name="HeaderGrid" Canvas.ZIndex="100" VerticalAlignment="Top" Padding="0" Grid.Row="0">
+                        <Grid x:Name="HeaderTextGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="header" Grid.Row="0"
+                                Text="IoT + Surface Dial Demo"
+                                Style="{ThemeResource HeaderTextBlockStyle}"
+                                Margin="10,0,0,0" Padding="15,10,0,0" FontSize="28"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="homeGrid" Grid.Row="1" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock x:Name="homeText" Text="This is Homepage" FontSize="16px"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="brightnessGrid" Grid.Row="1" Visibility="Collapsed">
+                        <StackPanel VerticalAlignment="Center">
+                            <Button x:Name="ToggleBtn" Content="Toggle" FontSize="14px" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ToggleBtn_Click"/>
+                            <Slider x:Name="BrightnessSlide" Minimum="0" Maximum="100" TickFrequency="10" SnapsTo="Ticks" Width="500px" HorizontalAlignment="Center" ValueChanged="BrightnessSlide_ValueChanged"/>
+                            <TextBlock x:Name="ShowSlideText" Text="Brightness: 0%" FontSize="14px" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="ToggleText" Text="GET Response: " FontSize="14px" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid> 
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
