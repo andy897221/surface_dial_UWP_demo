@@ -2,7 +2,7 @@
 
 a UWP program to demostrate how to program the surface dial interaction on your UWP app, this UWP app is meant for controlling the tplink light bulb using the surface dial, most of the code is about sending GET requests to the server hosting the script on event changes of the surface dial, the server side prgoram is here for your reference: https://github.com/andy897221/tplink-LB120-control-client-server-demo 
 
-the main program logic code is resided in Dial-tplink/MainPage.xaml.cs
+the main program logic code is resided in ```Dial-tplink/MainPage.xaml.cs```
 
 Details:
 
